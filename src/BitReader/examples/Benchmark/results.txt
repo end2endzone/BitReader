@@ -1,0 +1,98 @@
+#define USE_BITADDRESS_SETTER_GETTER
+#define USE_BITADDRESS_READ_WRITE
+Sketch uses 4,362 bytes (14%) of program storage space. Maximum is 30,720 bytes.
+Global variables use 1,570 bytes (76%) of dynamic memory, leaving 478 bytes for local variables. Maximum is 2,048 bytes.
+Copied 600 bytes using blocks of 1 bits in 153 milliseconds.
+Copied 600 bytes using blocks of 2 bits in 127 milliseconds.
+Copied 600 bytes using blocks of 3 bits in 121 milliseconds.
+Copied 600 bytes using blocks of 4 bits in 118 milliseconds.
+Copied 600 bytes using blocks of 5 bits in 118 milliseconds.
+Copied 600 bytes using blocks of 6 bits in 118 milliseconds.
+Copied 600 bytes using blocks of 7 bits in 117 milliseconds.
+Copied 600 bytes using blocks of 8 bits in 121 milliseconds.
+Copied 600 bytes using blocks of 9 bits in 118 milliseconds.
+Copied 600 bytes using blocks of 10 bits in 116 milliseconds.
+Copied 600 bytes using blocks of 11 bits in 116 milliseconds.
+Copied 600 bytes using blocks of 12 bits in 114 milliseconds.
+Copied 600 bytes using blocks of 13 bits in 116 milliseconds.
+Copied 600 bytes using blocks of 14 bits in 115 milliseconds.
+Copied 600 bytes using blocks of 15 bits in 116 milliseconds.
+Copied 600 bytes using blocks of 16 bits in 116 milliseconds.
+
+
+
+
+
+
+
+#define USE_SINGLEBIT_MACROS
+#define USE_BITADDRESS_READ_WRITE
+Sketch uses 4,434 bytes (14%) of program storage space. Maximum is 30,720 bytes.
+Global variables use 1,562 bytes (76%) of dynamic memory, leaving 486 bytes for local variables. Maximum is 2,048 bytes.
+Copied 600 bytes using blocks of 1 bits in 150 milliseconds.
+Copied 600 bytes using blocks of 2 bits in 120 milliseconds.
+Copied 600 bytes using blocks of 3 bits in 112 milliseconds.
+Copied 600 bytes using blocks of 4 bits in 107 milliseconds.
+Copied 600 bytes using blocks of 5 bits in 107 milliseconds.
+Copied 600 bytes using blocks of 6 bits in 106 milliseconds.
+Copied 600 bytes using blocks of 7 bits in 108 milliseconds.
+Copied 600 bytes using blocks of 8 bits in 108 milliseconds.
+Copied 600 bytes using blocks of 9 bits in 107 milliseconds.
+Copied 600 bytes using blocks of 10 bits in 104 milliseconds.
+Copied 600 bytes using blocks of 11 bits in 103 milliseconds.
+Copied 600 bytes using blocks of 12 bits in 103 milliseconds.
+Copied 600 bytes using blocks of 13 bits in 104 milliseconds.
+Copied 600 bytes using blocks of 14 bits in 103 milliseconds.
+Copied 600 bytes using blocks of 15 bits in 104 milliseconds.
+Copied 600 bytes using blocks of 16 bits in 105 milliseconds.
+
+
+
+
+
+
+#define USE_SINGLEBIT_MACROS
+Sketch uses 4,450 bytes (14%) of program storage space. Maximum is 30,720 bytes.
+Global variables use 1,528 bytes (74%) of dynamic memory, leaving 520 bytes for local variables. Maximum is 2,048 bytes.
+Copied 600 bytes using blocks of 1 bits in 153 milliseconds.
+Copied 600 bytes using blocks of 2 bits in 123 milliseconds.
+Copied 600 bytes using blocks of 3 bits in 114 milliseconds.
+Copied 600 bytes using blocks of 4 bits in 110 milliseconds.
+Copied 600 bytes using blocks of 5 bits in 109 milliseconds.
+Copied 600 bytes using blocks of 6 bits in 109 milliseconds.
+Copied 600 bytes using blocks of 7 bits in 108 milliseconds.
+Copied 600 bytes using blocks of 8 bits in 111 milliseconds.
+Copied 600 bytes using blocks of 9 bits in 107 milliseconds.
+Copied 600 bytes using blocks of 10 bits in 106 milliseconds.
+Copied 600 bytes using blocks of 11 bits in 105 milliseconds.
+Copied 600 bytes using blocks of 12 bits in 106 milliseconds.
+Copied 600 bytes using blocks of 13 bits in 104 milliseconds.
+Copied 600 bytes using blocks of 14 bits in 105 milliseconds.
+Copied 600 bytes using blocks of 15 bits in 105 milliseconds.
+Copied 600 bytes using blocks of 16 bits in 106 milliseconds.
+
+
+
+
+
+
+
+#define USE_BITADDRESS_SETTER_GETTER
+Sketch uses 4,370 bytes (14%) of program storage space. Maximum is 30,720 bytes.
+Global variables use 1,536 bytes (75%) of dynamic memory, leaving 512 bytes for local variables. Maximum is 2,048 bytes.
+Copied 600 bytes using blocks of 1 bits in 155 milliseconds.
+Copied 600 bytes using blocks of 2 bits in 128 milliseconds.
+Copied 600 bytes using blocks of 3 bits in 120 milliseconds.
+Copied 600 bytes using blocks of 4 bits in 118 milliseconds.
+Copied 600 bytes using blocks of 5 bits in 117 milliseconds.
+Copied 600 bytes using blocks of 6 bits in 118 milliseconds.
+Copied 600 bytes using blocks of 7 bits in 118 milliseconds.
+Copied 600 bytes using blocks of 8 bits in 120 milliseconds.
+Copied 600 bytes using blocks of 9 bits in 117 milliseconds.
+Copied 600 bytes using blocks of 10 bits in 116 milliseconds.
+Copied 600 bytes using blocks of 11 bits in 115 milliseconds.
+Copied 600 bytes using blocks of 12 bits in 114 milliseconds.
+Copied 600 bytes using blocks of 13 bits in 114 milliseconds.
+Copied 600 bytes using blocks of 14 bits in 114 milliseconds.
+Copied 600 bytes using blocks of 15 bits in 114 milliseconds.
+Copied 600 bytes using blocks of 16 bits in 115 milliseconds.
