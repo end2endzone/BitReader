@@ -13,10 +13,10 @@ mkdir %REPOSITORY_ROOT%\deploy >NUL 2>NUL
 ::Set product version
 call %REPOSITORY_ROOT%\version_info.bat
 
-set outfile="%REPOSITORY_ROOT%\deploy\SoftTimers v%PRODUCT_VERSION%.zip"
+set outfile="%REPOSITORY_ROOT%\deploy\BitReader v%PRODUCT_VERSION%.zip"
 
 set infiles=
-set infiles=%infiles% "%REPOSITORY_ROOT%\src\SoftTimers\*"
+set infiles=%infiles% "%REPOSITORY_ROOT%\src\BitReader\*"
 set infiles=%infiles% "%REPOSITORY_ROOT%\AUTHORS"
 set infiles=%infiles% "%REPOSITORY_ROOT%\CHANGES"
 set infiles=%infiles% "%REPOSITORY_ROOT%\LICENSE"
