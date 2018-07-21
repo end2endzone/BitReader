@@ -7,4 +7,4 @@ setBuffer	KEYWORD2
 read	KEYWORD2
 write	KEYWORD2
 skip	KEYWORD2
-getAddress  KEYWORD2
+getAddress	KEYWORD2
