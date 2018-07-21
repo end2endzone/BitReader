@@ -1,3 +1,7 @@
+Changes for 1.2.1:
+
+* Fixed issue #3 - Use correct field separator in keywords.txt
+
 Changes for 1.2.0:
 
 * Source code now depends on win32Arduino third party library available at http://github.com/end2endzone/win32Arduino
