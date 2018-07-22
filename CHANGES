@@ -1,5 +1,6 @@
 Changes for 1.2.1:
 
+* Fixed issue #1 - Update all examples: Z is character 25, not 26
 * Fixed issue #3 - Use correct field separator in keywords.txt
 
 Changes for 1.2.0:

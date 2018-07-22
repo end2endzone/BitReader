@@ -3,12 +3,13 @@
 /**
 * Encoding "text" as 5 bits characters using the following:
 *   A -> 0
-*   Z -> 26
-*     -> 27
-*   . -> 28
-*   0 -> 29
-*   1 -> 30
-*   2 -> 31
+*   Z -> 25
+*     -> 26
+*   . -> 27
+*   0 -> 28
+*   1 -> 29
+*   2 -> 30
+*   3 -> 31
 */
 
 #ifndef USE_BITADDRESS_READ_WRITE
@@ -37,11 +38,11 @@ void setup() {
     if (valueInBits >= 'A' && valueInBits <= 'Z')
       valueInBits -= 'A'; //back to 0 based
     else if (valueInBits == ' ')
-      valueInBits = 27;
+      valueInBits = 26;
     else if (valueInBits == '.')
-      valueInBits = 28;
-    else if (valueInBits >= '0' && valueInBits <= '2')
-      valueInBits -= ('0' - 29); //back to 0 based
+      valueInBits = 27;
+    else if (valueInBits >= '0' && valueInBits <= '3')
+      valueInBits -= ('0' - 28); //back to 0 based
 
     Serial.print("' into valueInBits -> ");
     Serial.println(valueInBits);
