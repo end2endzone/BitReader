@@ -176,16 +176,19 @@ The following demo show how to use the library:
 
 ```cpp
 #include <bitreader.h>
+
 /**
 * Encoding "text" as 5 bits characters using the following:
 *   A -> 0
-*   Z -> 26
-*     -> 27
-*   . -> 28
-*   0 -> 29
-*   1 -> 30
-*   2 -> 31
+*   Z -> 25
+*     -> 26
+*   . -> 27
+*   0 -> 28
+*   1 -> 29
+*   2 -> 30
+*   3 -> 31
 */
+
 #define BUFFER_SIZE 600
 unsigned char sourceBuffer[BUFFER_SIZE];
 unsigned char targetBuffer[BUFFER_SIZE];
