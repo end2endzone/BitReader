@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <tchar.h>
-
 #include <string>
+
 #include "TestBitReader.h"
-#include "arduino.h"
-#include "BitReader.h"
-#include "gTestHelper.h"
+#include "Arduino.h"
+#include "bitreader.h"
+#include "rapidassist/gtesthelp.h"
 
 using namespace testarduino;
 
