@@ -1,7 +1,4 @@
 @echo off
-REM 
-
-@echo off
 cd /d %~dp0
 
 set ARDUINO_IDE_VERSION=1.8.4
