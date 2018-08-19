@@ -1,4 +1,11 @@
-language: generic
+dist: trusty
+sudo: required 
+language: cpp
+os:
+- linux
+branches:
+  only:
+  - issue4
 env:
   global:
     - ARDUINO_IDE_VERSION=1.8.4

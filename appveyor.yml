@@ -8,7 +8,7 @@ version: "{branch} (#{build})"
 # branches to build
 branches:
   only:
-    - master
+    - issue4
 
 #---------------------------------#
 #    environment configuration    #
