@@ -1,9 +1,8 @@
 // ---------------------------------------------------------------------------
-//  BitReader Library - v1.1 - 03/24/2016
-//  Copyright (C) 2016 Antoine Beauchamp
-//  The code & updates for the library can be found on http://end2endzone.com
-//
-// See "BitReader.h" for license, purpose, syntax, version history, links, and more.
+// AUTHOR/LICENSE:
+//  The following code was written by Antoine Beauchamp. For other authors, see AUTHORS file.
+//  The code & updates for the library can be found at http://github.com/end2endzone/BitReader
+//  MIT License: http://www.opensource.org/licenses/mit-license.php
 // ---------------------------------------------------------------------------
 
 #include "bitreader.h"
