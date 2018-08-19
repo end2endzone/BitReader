@@ -25,7 +25,7 @@ clone_folder: c:\projects\BitReader
 # scripts that run after cloning repository
 install:
 - cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\arduino_ide_install.bat
-- cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\install.bat
+- cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\arduino_library_install.bat
 - cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\install_googletest.bat
 - cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\install_rapidassist.bat
 - cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\install_win32arduino.bat
