@@ -48,7 +48,7 @@
 #ifndef BITREADER_H
 #define BITREADER_H
 
-#include "arduino.h"
+#include "Arduino.h"
 
 #ifndef BITREADER_API
 #define BITREADER_API
