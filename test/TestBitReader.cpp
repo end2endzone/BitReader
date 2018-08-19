@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <tchar.h>
+#include <string.h>
 #include <string>
 
 #include "TestBitReader.h"
@@ -84,7 +84,7 @@ namespace arduino { namespace test
 
     //fill Person information
     Person p;
-    strcpy_s(p.name, PERSON_NAME_SIZE, "Antoine");
+    strcpy(p.name, "Antoine");
     p.birthDay = 24;
     p.birthMonth = 8;
     p.birthYear = 1982;
