@@ -12,21 +12,16 @@ env:
   matrix:
     - BOARD="arduino:avr:nano:cpu=atmega328"
 before_install:
-  - wget http://downloads.arduino.cc/arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz
-  - tar xf arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz
-  - mv arduino-$ARDUINO_IDE_VERSION $HOME/arduino-ide
-  - export PATH=$PATH:$HOME/arduino-ide
   - buildExampleSketch() { arduino --verbose-build --verify --board $BOARD $PWD/examples/$1/$1.ino; }
 install:
-  - mkdir -p $HOME/Arduino/libraries
-  - ln -s $PWD $HOME/Arduino/libraries/.
+  - cd $TRAVIS_BUILD_DIR/ci/travis; ./arduino_ide_install.sh;
+  - cd $TRAVIS_BUILD_DIR/ci/travis; ./install_googletest.sh;
+  - cd $TRAVIS_BUILD_DIR/ci/travis; ./install_rapidassist.sh;
+  - cd $TRAVIS_BUILD_DIR/ci/travis; ./install_win32arduino.sh;
 script:
   - buildExampleSketch Benchmark
   - buildExampleSketch ReadBits
   - buildExampleSketch WriteBits
-  - cd $TRAVIS_BUILD_DIR/ci/travis; ./install_googletest.sh;
-  - cd $TRAVIS_BUILD_DIR/ci/travis; ./install_rapidassist.sh;
-  - cd $TRAVIS_BUILD_DIR/ci/travis; ./install_win32arduino.sh;
   - cd $TRAVIS_BUILD_DIR/ci/travis; ./build_library.sh;
   - cd $TRAVIS_BUILD_DIR/build/bin;
     ./bitreader_unittest || true; #do not fail build even if a test fails.
