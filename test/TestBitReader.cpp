@@ -41,7 +41,7 @@ namespace arduino { namespace test
     BitAddress bitreader;
     #endif
 
-    static const uint8_t buffer[] = {0x41, 0x37, 0xfd, 0x9d, 0x76, 0x97, 0x01, 0x7e, 0x3f, 0x46, 0xa9, 0xca};
+    static const uint8_t buffer[] = {0x41, 0x37, 0xfd, 0x9d, 0x76, 0x97, 0x01, 0x00, 0x00, 0x46, 0xa9, 0x02};
     static const uint8_t BUFFER_SIZE = sizeof(buffer)/sizeof(buffer[0]);
 
     //define an output Person
@@ -83,7 +83,7 @@ namespace arduino { namespace test
     #endif
 
     //fill Person information
-    Person p;
+    Person p = {0};
     strcpy(p.name, "Antoine");
     p.birthDay = 24;
     p.birthMonth = 8;
@@ -93,7 +93,7 @@ namespace arduino { namespace test
 
     //define an output buffer
     static const size_t MAX_BUFFER_SIZE = 100;
-    uint8_t buffer[MAX_BUFFER_SIZE];
+    uint8_t buffer[MAX_BUFFER_SIZE] = {0};
 
     //setup BitWriter
     bitwriter.setBuffer(buffer);
@@ -118,7 +118,7 @@ namespace arduino { namespace test
     if (numBits%8)
       numBytes++;
 
-    static const uint8_t EXPECTED_BUFFER[] = {0x41, 0x37, 0xfd, 0x9d, 0x76, 0x97, 0x01, 0x7e, 0x3f, 0x46, 0xa9, 0xca}; //expected serialized buffer content
+    static const uint8_t EXPECTED_BUFFER[] = {0x41, 0x37, 0xfd, 0x9d, 0x76, 0x97, 0x01, 0x00, 0x00, 0x46, 0xa9, 0x02}; //expected serialized buffer content
     static const uint8_t EXPECTED_BUFFER_SIZE = sizeof(EXPECTED_BUFFER)/sizeof(EXPECTED_BUFFER[0]);
 
     //assert size of serialized buffer
