@@ -33,6 +33,242 @@ namespace arduino { namespace test
   {
   }
   //--------------------------------------------------------------------------------------------------
+  TEST_F(TestBitReader, testToAbsBitOffset)
+  {
+    #ifndef USE_BITADDRESS_READ_WRITE
+    BitWriter bitwriter;
+    #else
+    BitAddress bitwriter;
+    #endif
+
+    //define an output buffer
+    static const size_t MAX_BUFFER_SIZE = 30;
+    uint8_t buffer[MAX_BUFFER_SIZE] = {0};
+
+    //setup BitWriter
+    bitwriter.setBuffer(buffer);
+
+    //act & assert
+    ASSERT_EQ(0, bitwriter.toAbsBitOffset());
+    bitwriter.add(4);
+    ASSERT_EQ(4, bitwriter.toAbsBitOffset());
+    bitwriter.add(1);
+    ASSERT_EQ(5, bitwriter.toAbsBitOffset());
+    bitwriter.add(1);
+    ASSERT_EQ(6, bitwriter.toAbsBitOffset());
+    bitwriter.add(1);
+    ASSERT_EQ(7, bitwriter.toAbsBitOffset());
+    bitwriter.add(1); //1 more byte
+    ASSERT_EQ(8, bitwriter.toAbsBitOffset());
+    bitwriter.add(1);
+    ASSERT_EQ(9, bitwriter.toAbsBitOffset());
+    bitwriter.add(1);
+    ASSERT_EQ(10, bitwriter.toAbsBitOffset());
+  }
+  //--------------------------------------------------------------------------------------------------
+  TEST_F(TestBitReader, testReset)
+  {
+    #ifndef USE_BITADDRESS_READ_WRITE
+    BitWriter bitwriter;
+    #else
+    BitAddress bitwriter;
+    #endif
+
+    //define an input buffer
+    static const uint8_t INPUT_BUFFER[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
+    static const int INPUT_BUFFER_SIZE = sizeof(INPUT_BUFFER)/sizeof(INPUT_BUFFER[0]);
+
+    //define an output buffer
+    static const size_t MAX_BUFFER_SIZE = 30;
+    uint8_t buffer[MAX_BUFFER_SIZE] = {0};
+
+    //setup BitWriter
+    bitwriter.setBuffer(buffer);
+
+    //serialize, assert
+    ASSERT_EQ(0, bitwriter.toAbsBitOffset());
+    bitwriter.write(&INPUT_BUFFER[0], 8);
+    bitwriter.write(&INPUT_BUFFER[1], 8);
+    bitwriter.reset();
+    ASSERT_EQ(0, bitwriter.toAbsBitOffset());
+    bitwriter.write(&INPUT_BUFFER[2], 8);
+    bitwriter.write(&INPUT_BUFFER[3], 8);
+    bitwriter.write(&INPUT_BUFFER[4], 8);
+    bitwriter.write(&INPUT_BUFFER[5], 8);
+
+    //compute total size of serialized data
+    uint32_t numBits = bitwriter.toAbsBitOffset();
+    uint32_t numBytes = numBits/8;
+    if (numBits%8)
+      numBytes++;
+
+    //define ecpected buffer
+    static const uint8_t EXPECTED_BUFFER[] = {0xcc, 0xdd, 0xee, 0xff}; //expected serialized buffer content
+    static const int EXPECTED_BUFFER_SIZE = sizeof(EXPECTED_BUFFER)/sizeof(EXPECTED_BUFFER[0]);
+
+    //assert size of serialized buffer
+    ASSERT_EQ(32, numBits);
+    ASSERT_EQ(EXPECTED_BUFFER_SIZE, numBytes);
+
+    //assert serialized buffer content
+    for(int i=0; i<EXPECTED_BUFFER_SIZE; i++)
+    {
+      const uint8_t EXPECTED_CHARACTER = EXPECTED_BUFFER[i];
+      const uint8_t actualCharacter = buffer[i];
+      ASSERT_EQ(EXPECTED_CHARACTER, actualCharacter);
+    }
+  }
+  //--------------------------------------------------------------------------------------------------
+  TEST_F(TestBitReader, testAdd8bits)
+  {
+    #ifndef USE_BITADDRESS_READ_WRITE
+    BitWriter bitwriter;
+    #else
+    BitAddress bitwriter;
+    #endif
+
+    //define an input buffer
+    static const uint8_t INPUT_BUFFER[] = {0xaa, 0xbb, 0xcc};
+    static const int INPUT_BUFFER_SIZE = sizeof(INPUT_BUFFER)/sizeof(INPUT_BUFFER[0]);
+
+    //define an output buffer
+    static const size_t MAX_BUFFER_SIZE = 30;
+    uint8_t buffer[MAX_BUFFER_SIZE] = {0};
+
+    //setup BitWriter
+    bitwriter.setBuffer(buffer);
+
+    //serialize
+    bitwriter.add(4);
+    for(int i=0; i<INPUT_BUFFER_SIZE; i++)
+    {
+      bitwriter.write(&INPUT_BUFFER[i], 8);
+    }
+
+    //compute total size of serialized data
+    uint32_t numBits = bitwriter.toAbsBitOffset();
+    uint32_t numBytes = numBits/8;
+    if (numBits%8)
+      numBytes++;
+
+    //define ecpected buffer
+    static const uint8_t EXPECTED_BUFFER[] = {0xa0, 0xba, 0xcb, 0x0c}; //expected serialized buffer content
+    static const int EXPECTED_BUFFER_SIZE = sizeof(EXPECTED_BUFFER)/sizeof(EXPECTED_BUFFER[0]);
+
+    //assert size of serialized buffer
+    ASSERT_EQ(28, numBits);
+    ASSERT_EQ(EXPECTED_BUFFER_SIZE, numBytes);
+
+    //assert serialized buffer content
+    for(int i=0; i<EXPECTED_BUFFER_SIZE; i++)
+    {
+      const uint8_t EXPECTED_CHARACTER = EXPECTED_BUFFER[i];
+      const uint8_t actualCharacter = buffer[i];
+      ASSERT_EQ(EXPECTED_CHARACTER, actualCharacter);
+    }
+  }
+  //--------------------------------------------------------------------------------------------------
+  TEST_F(TestBitReader, testAdd3bits)
+  {
+    #ifndef USE_BITADDRESS_READ_WRITE
+    BitWriter bitwriter;
+    #else
+    BitAddress bitwriter;
+    #endif
+
+    //define an input buffer
+    static const uint8_t INPUT_BUFFER[] = {0xaa, 0xbb, 0xcc};
+    static const int INPUT_BUFFER_SIZE = sizeof(INPUT_BUFFER)/sizeof(INPUT_BUFFER[0]);
+
+    //define an output buffer
+    static const size_t MAX_BUFFER_SIZE = 30;
+    uint8_t buffer[MAX_BUFFER_SIZE] = {0};
+
+    //setup BitWriter
+    bitwriter.setBuffer(buffer);
+
+    //serialize
+    for(int i=0; i<INPUT_BUFFER_SIZE; i++)
+    {
+      bitwriter.add(3);
+      bitwriter.write(&INPUT_BUFFER[i], 8);
+    }
+
+    //compute total size of serialized data
+    uint32_t numBits = bitwriter.toAbsBitOffset();
+    uint32_t numBytes = numBits/8;
+    if (numBits%8)
+      numBytes++;
+
+    //define ecpected buffer
+    static const uint8_t EXPECTED_BUFFER[] = {0x50, 0xc5, 0x2e, 0x98, 0x01}; //expected serialized buffer content
+    static const int EXPECTED_BUFFER_SIZE = sizeof(EXPECTED_BUFFER)/sizeof(EXPECTED_BUFFER[0]);
+
+    //assert size of serialized buffer
+    ASSERT_EQ(INPUT_BUFFER_SIZE*(8+3), numBits);
+    ASSERT_EQ(EXPECTED_BUFFER_SIZE, numBytes);
+
+    //assert serialized buffer content
+    for(int i=0; i<EXPECTED_BUFFER_SIZE; i++)
+    {
+      const uint8_t EXPECTED_CHARACTER = EXPECTED_BUFFER[i];
+      const uint8_t actualCharacter = buffer[i];
+      ASSERT_EQ(EXPECTED_CHARACTER, actualCharacter);
+    }
+  }
+  //--------------------------------------------------------------------------------------------------
+  TEST_F(TestBitReader, testNext)
+  {
+    #ifndef USE_BITADDRESS_READ_WRITE
+    BitWriter bitwriter;
+    #else
+    BitAddress bitwriter;
+    #endif
+
+    //define an input buffer
+    static const uint8_t INPUT_BUFFER[] = {0xaa, 0xbb, 0xcc};
+    static const int INPUT_BUFFER_SIZE = sizeof(INPUT_BUFFER)/sizeof(INPUT_BUFFER[0]);
+
+    //define an output buffer
+    static const size_t MAX_BUFFER_SIZE = 30;
+    uint8_t buffer[MAX_BUFFER_SIZE] = {0};
+
+    //setup BitWriter
+    bitwriter.setBuffer(buffer);
+
+    //serialize
+    for(int i=0; i<INPUT_BUFFER_SIZE; i++)
+    {
+      bitwriter.next();
+      bitwriter.next();
+      bitwriter.next(); //same as add(3);
+
+      bitwriter.write(&INPUT_BUFFER[i], 8);
+    }
+
+    //compute total size of serialized data
+    uint32_t numBits = bitwriter.toAbsBitOffset();
+    uint32_t numBytes = numBits/8;
+    if (numBits%8)
+      numBytes++;
+
+    //define ecpected buffer
+    static const uint8_t EXPECTED_BUFFER[] = {0x50, 0xc5, 0x2e, 0x98, 0x01}; //expected serialized buffer content
+    static const int EXPECTED_BUFFER_SIZE = sizeof(EXPECTED_BUFFER)/sizeof(EXPECTED_BUFFER[0]);
+
+    //assert size of serialized buffer
+    ASSERT_EQ(INPUT_BUFFER_SIZE*(8+3), numBits);
+    ASSERT_EQ(EXPECTED_BUFFER_SIZE, numBytes);
+
+    //assert serialized buffer content
+    for(int i=0; i<EXPECTED_BUFFER_SIZE; i++)
+    {
+      const uint8_t EXPECTED_CHARACTER = EXPECTED_BUFFER[i];
+      const uint8_t actualCharacter = buffer[i];
+      ASSERT_EQ(EXPECTED_CHARACTER, actualCharacter);
+    }
+  }
+  //--------------------------------------------------------------------------------------------------
   TEST_F(TestBitReader, testDeserialize)
   {
     #ifndef USE_BITADDRESS_READ_WRITE
@@ -42,7 +278,7 @@ namespace arduino { namespace test
     #endif
 
     static const uint8_t buffer[] = {0x41, 0x37, 0xfd, 0x9d, 0x76, 0x97, 0x01, 0x00, 0x00, 0x46, 0xa9, 0x02};
-    static const uint8_t BUFFER_SIZE = sizeof(buffer)/sizeof(buffer[0]);
+    static const int BUFFER_SIZE = sizeof(buffer)/sizeof(buffer[0]);
 
     //define an output Person
     Person p = {0};
@@ -119,7 +355,7 @@ namespace arduino { namespace test
       numBytes++;
 
     static const uint8_t EXPECTED_BUFFER[] = {0x41, 0x37, 0xfd, 0x9d, 0x76, 0x97, 0x01, 0x00, 0x00, 0x46, 0xa9, 0x02}; //expected serialized buffer content
-    static const uint8_t EXPECTED_BUFFER_SIZE = sizeof(EXPECTED_BUFFER)/sizeof(EXPECTED_BUFFER[0]);
+    static const int EXPECTED_BUFFER_SIZE = sizeof(EXPECTED_BUFFER)/sizeof(EXPECTED_BUFFER[0]);
 
     //assert size of serialized buffer
     ASSERT_EQ(91, numBits);
