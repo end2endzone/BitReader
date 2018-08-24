@@ -17,4 +17,5 @@ echo ===========================================================================
 echo Compiling $ARDUINO_INO_FILE
 echo ==========================================================================================================
 
-arduino --verbose-build --verify --board $ARDUINO_BOARD $ARDUINO_INO_FILE
+# --verbose-build
+arduino --verify --board $ARDUINO_BOARD $ARDUINO_INO_FILE
