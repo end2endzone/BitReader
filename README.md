@@ -321,17 +321,16 @@ Please refer to file [INSTALL.md](INSTALL.md) for details on how installing/buil
 
 
 
-# Testing
-
+# Testing #
 BitReader comes with unit tests which help maintaining the product stability and level of quality.
 
-Test are build using the Google Test v1.6.0 framework. For more information on how googletest is working, see the [google test documentation primer](https://github.com/google/googletest/blob/release-1.8.0/googletest/docs/V1_6_Primer.md).  
+Test are build using the Google Test v1.8.0 framework. For more information on how googletest is working, see the [google test documentation primer](https://github.com/google/googletest/blob/release-1.8.0/googletest/docs/V1_6_Primer.md).  
 
-Test are automatically build when building the solution. See [INSTALL.md](INSTALL.md) for details on how to build the software.
+To run tests, open a shell prompt and browse to the `build/bin` folder and run `bitreader_unittest` executable. For Windows users, the executable is located in `build\bin\Release`.
 
-To run tests, open a file navigator and browse to the output folder (for example `c:\projects\BitReader\cmake\build\bin\Release`) and run `BitReader_unittest.exe` executable.
+Test results are saved in junit format in file `bitreader_unittest.release.xml`.
 
-Test results are saved in junit format in file `BitReader_unittest.x86.debug.xml` or `BitReader_unittest.x86.release.xml` depending on the selected configuration.
+The latest test results are available at the beginning of the [README.md](README.md) file.
 
 See also the latest test results at the beginning of the document.
 

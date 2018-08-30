@@ -1,18 +1,18 @@
 # Install
 
-The library can be found, installed, or updated from your Arduino IDE using the official Arduino Library Manager (available from IDE version 1.6.2).
+The library can be found, installed, or updated from the Arduino IDE using the official Arduino Library Manager (available from IDE version 1.6.2).
 
 
 The library can be installed on the system by following the same steps as with other Arduino library.
 
-Refer to the [Installing Additional Arduino Libraries](https://www.arduino.cc/en/Guide/Libraries) tutorial for details on how to install a third party library.
+Refer to [Installing Additional Arduino Libraries](https://www.arduino.cc/en/Guide/Libraries) tutorial for details on how to install a third party library.
 
 
 
 
 # Build
 
-The library does not require building before usage. However, the unit test can be build on Windows/Linux platform to validate the functionalities.
+The library does not require building before usage. However, the unit tests can be build on Windows/Linux platform to maintain the product stability and level of quality.
 
 This section explains how to compile and build the software and how to get a test environment ready.
 
