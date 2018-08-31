@@ -35,9 +35,9 @@ install:
 #---------------------------------#
 
 build_script:
-- cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\arduino_build_example.bat Benchmark
-- cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\arduino_build_example.bat ReadBits
-- cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\arduino_build_example.bat WriteBits
+- cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\arduino_build_sketch.bat Benchmark
+- cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\arduino_build_sketch.bat ReadBits
+- cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\arduino_build_sketch.bat WriteBits
 - cmd: call %APPVEYOR_BUILD_FOLDER%\ci\appveyor\build_library.bat
 
 #---------------------------------#
