@@ -6,7 +6,7 @@
 
 
 
-# BitReader
+# BitReader #
 
 The BitReader library is an arduino library that allows one to read or write data which is not aligned on 8, 16 or 32 bits variables. In other words, the library allows one to quickly store (or read) multiple variables from binary buffers.
 
@@ -34,7 +34,7 @@ Statistics:
 
 
 
-# Purpose
+# Purpose #
 
 Desktop application developers are not used to have memory (or even CPU) requirements. Most will not look at memory consumption as an arduino developer would. Memory & CPU is cheap. If an application is struggling to run on today's computer, it will run smoothly in 1-2 years. Arduino developers know that the amount of memory available on embedded devices is pretty limited. Having a way to save bits of precious memory is more than interesting.
 
@@ -80,14 +80,14 @@ In these kind of situations, the BitReader library becomes handy and takes care 
 
 
 
-# Usage
+# Usage #
 
 The following instructions show how to use the library.
 
 
 
 
-## General
+## General ##
 
 Create an instance of `BitReader`, `BitWriter` or `BitAddress` depending on the following optimization switches:
 * USE_BITADDRESS_SETTER_GETTER
@@ -101,7 +101,7 @@ Call the `write()` or `read()` methods for writing or reading bits to the assign
 
 
 
-## Making text strings shorter
+## Making text strings shorter ##
 
 The library is useful for storing or decoding data in binary format using the **minimum amount of bits**.
 
@@ -112,7 +112,7 @@ Allow 6 bits per characters and you can also include capital letters and numbers
 
 
 
-## Shorter structures definition
+## Shorter structures definition ##
 
 The library is particularly useful for dealing with [bit-field structures](http://en.cppreference.com/w/cpp/language/bit_field).
 
@@ -177,7 +177,7 @@ In the last 2 scenarios (`Person2` and `Person3`), the BitReader library allows 
 
 
 
-## Make data arrays much shorter
+## Make data arrays much shorter ##
 
 Consider an algorithm that plays a [Morse code](https://en.wikipedia.org/wiki/Morse_code). Morse code defines 3 symbols that can be played: dots, dashes and pauses.
 
@@ -198,7 +198,7 @@ The same concept applies to all numeric array.
 
 
 
-## Sample code
+## Sample code ##
 
 The following demo show how to use the library:
 
@@ -303,7 +303,7 @@ void loop() {
 
 
 
-## Other samples
+## Other samples ##
 
 See the library examples for more details:
 
@@ -314,48 +314,31 @@ See the library examples for more details:
 
 
 
-# Building
+# Building #
 
 Please refer to file [INSTALL.md](INSTALL.md) for details on how installing/building the application.
 
 
 
 
-# Testing #
-BitReader comes with unit tests which help maintaining the product stability and level of quality.
+# Platforms #
 
-Test are build using the Google Test v1.8.0 framework. For more information on how googletest is working, see the [google test documentation primer](https://github.com/google/googletest/blob/release-1.8.0/googletest/docs/V1_6_Primer.md).  
+win32Arduino has been tested with the following platform:
 
-To run tests, open a shell prompt and browse to the `build/bin` folder and run `bitreader_unittest` executable. For Windows users, the executable is located in `build\bin\Release`.
-
-Test results are saved in junit format in file `bitreader_unittest.release.xml`.
-
-The latest test results are available at the beginning of the [README.md](README.md) file.
-
-See also the latest test results at the beginning of the document.
+  * Linux x86/x64
+  * Windows x86/x64
 
 
 
 
-# Compatible with
-
-BitReader is only available for the Windows platform and has been tested with the following version of Windows:
-
-*   Windows XP
-*   Windows Vista
-*   Windows 7
-
-
-
-
-# Versioning
+# Versioning #
 
 We use [Semantic Versioning 2.0.0](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/end2endzone/BitReader/tags).
 
 
 
 
-# Authors
+# Authors #
 
 * **Antoine Beauchamp** - *Initial work* - [end2endzone](https://github.com/end2endzone)
 
@@ -364,6 +347,6 @@ See also the list of [contributors](https://github.com/end2endzone/BitReader/blo
 
 
 
-# License
+# License #
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

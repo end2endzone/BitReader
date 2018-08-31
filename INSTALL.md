@@ -12,7 +12,7 @@ Refer to [Installing Additional Arduino Libraries](https://www.arduino.cc/en/Gui
 
 # Build
 
-The library does not require building before usage. However, the unit tests can be build on Windows/Linux platform to maintain the product stability and level of quality.
+The library unit tests can be build on Windows/Linux platform to maintain the product stability and level of quality.
 
 This section explains how to compile and build the software and how to get a test environment ready.
 
@@ -53,22 +53,50 @@ These are the base requirements to build source code:
 
 The BitReader unit test uses the CMake build system to generate a platform-specific build environment. CMake reads the CMakeLists.txt files, checks for installed dependencies and then generates files for the selected build system.
 
-To build the software, execute the following steps:
+The following steps show how to build the library for each specific platform:
+
+
+
+### Windows ###
 
 1) Download the source code from an existing [tags](https://github.com/end2endzone/BitReader/tags) and extract the content to a local directory (for example `c:\projects\BitReader` or `~/dev/BitReader`).
 
-2) Open a shell prompt and browse to the project directory.
+2) Open a command prompt and browse to the project directory.
 
-3) Enter the following commands to generate the project files for your build system:
+3) Generate Visual Studio solution by executing the following commands:
 ```
 mkdir build
 cd build
 cmake ..
 ```
 
-4) Build the source code:
-   1) On Windows, run `cmake --build . --config Release`.
-   2) On Linux, run `make` command.
+4) Build the source code from the command line using: `cmake --build . --config Release`.
+   
+   or
+   
+   Build from the Visual Studio IDE (aka GUI) by executing the following:
+
+      * Click on `BitReader.sln` to open Visual Studio IDE.
+      * Click on menu `Build` and select `Build Solution`. (The `F7` key also launches the compiler)
+      * Wait for the compilation to complete.
+      * Exit Visual Studio.
+
+
+
+### Linux ###
+
+1) Download the source code from an existing [tags](https://github.com/end2endzone/BitReader/tags) and extract the content to a local directory (for example `c:\projects\BitReader` or `~/dev/BitReader`).
+
+2) Open a terminal and browse to the project directory.
+
+3) Generate the _Makefile_ using the following commands:
+```
+mkdir build
+cd build
+cmake ..
+```
+
+4) Build the source code from the command line using the command: `make`.
 
 
 
