@@ -53,50 +53,30 @@ These are the base requirements to build source code:
 
 The BitReader unit test uses the CMake build system to generate a platform-specific build environment. CMake reads the CMakeLists.txt files, checks for installed dependencies and then generates files for the selected build system.
 
-The following steps show how to build the library for each specific platform:
-
-
-
-### Windows ###
+The following steps show how to build the library:
 
 1) Download the source code from an existing [tags](https://github.com/end2endzone/BitReader/tags) and extract the content to a local directory (for example `c:\projects\BitReader` or `~/dev/BitReader`).
 
-2) Open a command prompt and browse to the project directory.
+2) Open a Command Prompt (Windows) or Terminal (Linux) and browse to the project directory.
 
-3) Generate Visual Studio solution by executing the following commands:
+3) Enter the following commands to generate the project files for your build system:
 ```
 mkdir build
 cd build
 cmake ..
 ```
 
-4) Build the source code from the command line using: `cmake --build . --config Release`.
-   
-   or
-   
-   Build from the Visual Studio IDE (aka GUI) by executing the following:
+4) Build the source code.
 
-      * Click on `BitReader.sln` to open Visual Studio IDE.
-      * Click on menu `Build` and select `Build Solution`. (The `F7` key also launches the compiler)
-      * Wait for the compilation to complete.
-      * Exit Visual Studio.
-
-
-
-### Linux ###
-
-1) Download the source code from an existing [tags](https://github.com/end2endzone/BitReader/tags) and extract the content to a local directory (for example `c:\projects\BitReader` or `~/dev/BitReader`).
-
-2) Open a terminal and browse to the project directory.
-
-3) Generate the _Makefile_ using the following commands:
+**Windows**
 ```
-mkdir build
-cd build
-cmake ..
+cmake --build . --config Release
 ```
 
-4) Build the source code from the command line using the command: `make`.
+**Linux**
+```
+make
+```
 
 
 
