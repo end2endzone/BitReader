@@ -323,7 +323,7 @@ Please refer to file [INSTALL.md](INSTALL.md) for details on how installing/buil
 
 # Platforms #
 
-win32Arduino has been tested with the following platform:
+BitReader has been tested with the following platform:
 
   * Linux x86/x64
   * Windows x86/x64
